@@ -1,2 +1,3 @@
 # learn_chef_iis
-Cookbook for the Learn Chef tutorials
+
+This basic cookbook configures IIS on Windows Server 2012 R2.

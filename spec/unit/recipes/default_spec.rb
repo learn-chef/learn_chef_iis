@@ -8,8 +8,12 @@ require 'spec_helper'
 
 describe 'learn_chef_iis::default' do
   context 'When all attributes are default, on an unspecified platform' do
+    before do
+      stub_command('(Get-WindowsFeature -Name Web-Server).Installed').and_return(false)
+    end
+
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new
+      runner = ChefSpec::ServerRunner.new(platform: 'windows', version: '2012R2')
       runner.converge(described_recipe)
     end
 

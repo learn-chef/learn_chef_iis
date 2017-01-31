@@ -1,6 +1,8 @@
 ---
 driver:
   name: vagrant
+  boot_timeout: 1200
+  gui: false
 
 provisioner:
   name: chef_zero
@@ -11,9 +13,11 @@ verifier:
 transport:
   name: winrm
   elevated: true
+  username: Administrator
+  password: Pass@word1
 
 platforms:
-  - name: windows-2012r2
+  - name: windows-2012R2
     driver:
       customize:
         memory: 2048
@@ -24,5 +28,5 @@ suites:
       - recipe[learn_chef_iis::default]
     verifier:
       inspec_tests:
-        - test/recipes
+        - test/smoke/default
     attributes:

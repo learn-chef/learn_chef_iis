@@ -13,6 +13,6 @@ service 'w3svc' do
   action [:enable, :start]
 end
 
-template 'c:\inetpub\wwwroot\Default.htm' do # ~FC033
+template 'c:\\inetpub\\wwwroot\\Default.htm' do # ~FC033
   source 'Default.htm.erb'
 end
